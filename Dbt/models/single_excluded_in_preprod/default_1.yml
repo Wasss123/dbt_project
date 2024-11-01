@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: default
+    dataset:  my_operational
+    description: GCP table
+  - name: variable
+    dataset:  my_operational
+    description: GCP table
+
+  - name: user_operation
+    dataset:  my_operational
+    description: GCP table
+
+  - name: task
+    dataset:  my_operational
+    description: GCP table
+
+  - name: job
+    dataset:  my_operational
+    description: GCP table
+
+  - name: form_property
+    dataset:  my_operational
+    description: GCP table
+
+  - name: appointment
+    dataset:  my_operational
+    description: GCP table
+
+  - name: availability_slots
+    dataset:  my_operational
+    description: GCP table
+
+  - name: stg_appointment_slots
+    dataset:  my_operational
+    description: GCP table
+

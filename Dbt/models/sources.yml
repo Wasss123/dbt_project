@@ -1,0 +1,63 @@
+version: 2
+
+sources:
+  - name: my_domain_workflow_dataset
+    project: "{{ var('gcp_projects_by_env')[target.name] }}"
+    description: "my_domain_workflow dataset"
+    dataset: my_domain_workflow
+    tables:
+      - name: "process"
+      - name: "variable"
+      - name: "user_operation"
+      - name: "task"
+      - name: "job"
+      - name: "form_property"
+
+
+  - name: my_domain_appointment_dataset
+    project: "{{ var('gcp_projects_by_env')[target.name] }}"
+    description: "my_domain_appointment_dataset"
+    dataset: my_domain_workflow
+    tables:
+      - name: "appointment"
+      - name: "availability_slots"
+      - name: "consultation"
+      - name: "consultation_notes"
+      - name: "patient"
+      - name: "stg_appointment_slots"
+
+  - name: event_dataset
+    project: "{{ var('gcp_projects_by_env')[target.name] }}"
+    description: "my_domain_appointment_dataset"
+    dataset: event
+    tables:
+      - name: "coreruby_transactions_native"
+
+
+
+  - name: coreruby
+    description: 'Events from Coreruby Native'
+    project: "{{ var('gcp_projects_by_env')[target.name] }}"
+    database: project
+    schema: event
+    tables:
+      - name: 'transactions'
+        identifier: "coreruby_transactions_native"
+      - name: 'credit_cards'
+        identifier: "coreruby_credit_cards_native"
+      - name: 'appointments'
+        identifier: "coreruby_appointments_native"
+      - name: 'consumer_networks'
+        identifier: "coreruby_consumer_networks_native"
+      - name: 'transaction_details'
+        identifier: "coreruby_transaction_details_native"
+      - name: 'consultants'
+        identifier: "coreruby_consultants_native"
+      - name: 'consultants_regions'
+        identifier: "coreruby_consultants_regions_native"
+      - name: 'specialisms'
+        identifier: "coreruby_specialisms_native"
+      - name: 'specialism_categories'
+        identifier: "coreruby_specialism_categories_native"
+      - name: 'appointment_service_types'
+        identifier: "coreruby_appointment_service_types_native"

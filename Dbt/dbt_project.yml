@@ -1,0 +1,49 @@
+name: 'dap'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'domain_dbt'
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+#test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["../../dags/domain_utils/macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+
+vars:
+    version: ''
+    dap:
+        # GCP projects by environment (i.e target).
+        # This map is used by the macro `get_custom_database` to determine the actual GCP project to use for a model.
+        gcp_projects_by_env:
+                dev-uk: my-dev-239410
+                preprod-ca: my-preprod-project
+                prod-ca: my-prod-project
+models:
+    dap:
+        m0_report:
+            schema: my_operational
+            enabled: true
+            materialized: table
+        m1_report:
+            schema: my_operational
+            enabled: true
+            materialized: table
+        single:
+            schema: my_operational
+            enabled: true
+            materialized: table
+        single_excluded_in_preprod:
+            schema: my_operational
+            materialized: table
+            +enabled: "{{ target.name != 'preprod-ca' }}"

@@ -1,0 +1,17 @@
+version: 2
+
+models:
+
+  - name: consultation
+    dataset:  my_operational
+    description: GCP table
+
+  - name: consultation_notes
+    dataset:  my_operational
+    description: GCP table
+
+  - name: patient
+    dataset:  my_operational
+    description: GCP table
+
+

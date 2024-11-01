@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: m1_report
+    dataset:  my_operational
+    description: Transactions and refunded transactions details
+    columns:
+      - name: R_ID
+        data_type: STRING
+        description: "R_ID"
+      - name: R_TYPE
+        data_type: STRING
+        description: "R_TYPE"
+      - name: WORKSTATION
+        data_type: STRING
+        description: "WORKSTATION"
+      - name: RECEIPT_NUMBER
+        data_type: STRING
+        description: "RECEIPT_NUMBER"
+      - name: ITEM_NUMBER
+        data_type: STRING
+        description: "ITEM_NUMBER"
+      - name: PRODUCT_CODE
+        data_type: STRING
+        description: "PRODUCT_CODE"
+      - name: PRODUCT_DESC
+        data_type: STRING
+        description: "PRODUCT_DESC"
+      - name: GL_ACCOUNT
+        data_type: STRING
+        description: "GL_ACCOUNT"
+      - name: QUANTITY
+        data_type: date
+        description: "QUANTITY"
+      - name: AMOUNT
+        data_type: TIMESTAMP
+        description: "AMOUNT"
+      - name: SIGN_
+        data_type: STRING
+        description: "SIGN_"
+      - name: GST_EXEMPT_FLAG
+        data_type: STRING
+        description: "GST_EXEMPT_FLAG"
+      - name: GST_AMOUNT
+        data_type: STRING
+        description: "GST_AMOUNT"
+      - name: GST_SIGN
+        data_type: STRING
+        description: "GST_SIGN"
+      - name: PST_EXEMPT_FLAG
+        data_type: STRING
+        description: "PST_EXEMPT_FLAG"
+      - name: PST_AMOUNT
+        data_type: STRING
+        description: "PST_AMOUNT"
+      - name: PST_SIGN
+        data_type: STRING
+        description: "PST_SIGN"
+      - name: HST_EXEMPT_FLAG
+        data_type: STRING
+        description: "HST_EXEMPT_FLAG"
+      - name: HST_AMOUNT
+        data_type: STRING
+        description: "HST_AMOUNT"
+      - name: HST_SIGN
+        data_type: STRING
+        description: "HST_SIGN"
+      - name: PRODUCT_GROUP
+        data_type: STRING
+        description: "PRODUCT_GROUP"

@@ -1,0 +1,52 @@
+config:
+  partial_parse: false
+  use_colors: true
+  printer_width: 120
+  send_anonymous_usage_stats: false
+
+config_global: &config_global
+  type: bigquery
+  priority: interactive
+  threads: 8
+  job_execution_timeout_seconds: 600
+  retries: 0
+
+
+config_oauth: &config_oauth
+  <<: *config_global
+  method: oauth
+
+config_service_account: &config_service_account
+  <<: *config_global
+  method: service-account
+  keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"
+
+
+domain_dbt:
+  target: dev-uk # Default target name
+  # Execution on Gitlab / Airflow / Google Cloud Composer
+  outputs:
+    dev-uk:
+      project: "my-dev-239410"
+      location: europe-west2   
+      dataset: "my_operational"
+      <<: *config_service_account
+    preprod-ca:
+      project: "my-tgt-preprod-project"
+      location: northamerica-northeast1
+      dataset: "my_operational"
+
+      <<: *config_service_account
+    prod-ca:
+      project: "my-tgt-prod-project"
+      location: northamerica-northeast1
+      dataset: "my_operational"
+      <<: *config_service_account
+
+# Local execution
+local:
+  target: dev-uk
+  outputs:
+    dev:
+      dataset: "test_db" #a local dataset for Data Eng tests
+      <<: *config_oauth

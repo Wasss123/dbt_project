@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: mo_report
+    dataset:  my_operational
+    description: Transactions and refunded transactions
+    columns:
+      - name: R_ID
+        data_type: STRING
+        description: "R_ID"
+      - name: R_TYPE
+        data_type: STRING
+        description: "R_TYPE"
+      - name: PROVINCE
+        data_type: STRING
+        description: "PROVINCE"
+      - name: RECEIPT_NUMBER
+        data_type: STRING
+        description: "RECEIPT_NUMBER"
+      - name: PAYMNET_AMOUNT
+        data_type: STRING
+        description: "PAYMNET_AMOUNT"
+      - name: SIGN
+        data_type: STRING
+        description: "SIGN"
+      - name: AUTHORISATION_NUMBER
+        data_type: STRING
+        description: "AUTHORISATION_NUMBER"
+      - name: PAYMENT_METHOD
+        data_type: STRING
+        description: "PAYMENT_METHOD"
+      - name: DATE_OF_SALE
+        data_type: date
+        description: "DATE_OF_SALE"
+      - name: TIME_OF_SALE
+        data_type: TIMESTAMP
+        description: "TIME_OF_SALE"
+      - name: CREDIT_CARD_L4
+        data_type: STRING
+        description: "CREDIT_CARD_L4"
+      - name: CREDIT_CARD_F6
+        data_type: STRING
+        description: "CREDIT_CARD_F6"
