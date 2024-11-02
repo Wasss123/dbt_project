@@ -1,0 +1,44 @@
+# Any source tables used in schema should be referenced here
+
+version: 2
+
+sources:
+  - name: dataset_name
+    description: 'Events from Coreruby Native or Microservice or External sources'
+    database: "{{ env_var('DBT_SRC_GCP_PROJECT') }}"
+    schema: "{{env_var('DBT_SRC_GCP_DATASET') }}"
+    tables:
+      - name: 'table_name'
+        identifier: "{{ env_var('DBT_SRC_TABLE_NAME') }}"
+  - name: raw
+    description: 'Events from Coreruby Native or Microservice or External sources'
+    database: "{{ env_var('DBT_SRC_GCP_PROJECT') }}"
+    schema: "{{env_var('DBT_SRC_GCP_DATASET') }}"
+    tables:
+      - name: 'profile'
+        identifier: "{{ env_var('DBT_SRC_TABLE_NAME') }}"
+  - name: coreruby
+    description: 'Events from Coreruby Native'
+    database: "{{ env_var('DBT_SRC_GCP_PROJECT') }}"
+    schema: "{{env_var('DBT_SRC_GCP_DATASET') }}"
+    tables:
+      - name: 'transactions'
+        identifier: "coreruby_transactions_native"
+      - name: 'credit_cards'
+        identifier: "coreruby_credit_cards_native"
+      - name: 'appointments'
+        identifier: "coreruby_appointments_native"
+      - name: 'consumer_networks'
+        identifier: "coreruby_consumer_networks_native"
+      - name: 'transaction_details'
+        identifier: "coreruby_transaction_details_native"
+      - name: 'consultants'
+        identifier: "coreruby_consultants_native"
+      - name: 'consultants_regions'
+        identifier: "coreruby_consultants_regions_native"
+      - name: 'specialisms'
+        identifier: "coreruby_specialisms_native"
+      - name: 'specialism_categories'
+        identifier: "coreruby_specialism_categories_native"
+      - name: 'appointment_service_types'
+        identifier: "coreruby_appointment_service_types_native"
